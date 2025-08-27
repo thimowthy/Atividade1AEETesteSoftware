@@ -67,7 +67,7 @@ class OrderProcessorRetryTest(TestCase):
         processor = OrderProcessor(payment_gateway)
         order = {'items': [50, 50]}
 
-        result = processor.process_order_with_retry(order)
+        result = processor.process_order_with_retry(order,)
         self.assertEqual(payment_gateway.charge.call_count, 3)
 
         self.assertEqual(result, "Order processed successfully")

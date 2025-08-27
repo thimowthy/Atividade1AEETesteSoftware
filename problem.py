@@ -20,7 +20,7 @@ class OrderProcessor:
         while attempt < max_attempts:
             attempt += 1
             try:
-                self.payment_gateway.charge(total)
+                status = self.payment_gateway.charge(total)
                 # PROBLEMA 3: considera sucesso sem verificar se realmente foi processado
                 return "Order processed successfully"
             except Exception as e:
